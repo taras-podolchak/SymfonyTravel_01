@@ -1,0 +1,18 @@
+<div id="contact-section-INICIAR-SESION" class="pad-sec">
+	<div class="container">
+		<div class="form-wrapper">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+
+					<form method="post" action="{{ path('app_evento_eve_delete', {'idEve': evento_eve.idEve}) }}" onsubmit="return confirm('¿Estas seguro que quieres eliminar este evento?');">
+						<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ evento_eve.idEve) }}">
+						<button class="btn">Delete</button>
+					</form>
+				</div>
+				<!-- end col-md-8 -->
+			</div>
+			<!-- end row -->
+		</div>
+		<!-- end form-wrapper -->
+	</div>
+</div>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ActividadAct{% endblock %}
+
+{% block body %}
+    <h1>Edit ActividadAct</h1>
+
+    {{ include('actividad_act/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_actividad_act_index') }}">back to list</a>
+
+    {{ include('actividad_act/_delete_form.html.twig') }}
+{% endblock %}

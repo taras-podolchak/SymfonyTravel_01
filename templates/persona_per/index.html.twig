@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonaPer index{% endblock %}
+
+{% block body %}
+    <h1>PersonaPer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdPer</th>
+                <th>UsuariotipoPer</th>
+                <th>FotopropiaPer</th>
+                <th>NombrePer</th>
+                <th>Apellido1Per</th>
+                <th>Apellido2Per</th>
+                <th>MovilPer</th>
+                <th>DniPer</th>
+                <th>EmailPer</th>
+                <th>ContrasennaPer</th>
+                <th>CochePer</th>
+                <th>FechaaltaPer</th>
+                <th>FechabajaPer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for persona_per in persona_pers %}
+            <tr>
+                <td>{{ persona_per.idPer }}</td>
+                <td>{{ persona_per.usuariotipoPer }}</td>
+                <td>{{ persona_per.fotopropiaPer }}</td>
+                <td>{{ persona_per.nombrePer }}</td>
+                <td>{{ persona_per.apellido1Per }}</td>
+                <td>{{ persona_per.apellido2Per }}</td>
+                <td>{{ persona_per.movilPer }}</td>
+                <td>{{ persona_per.dniPer }}</td>
+                <td>{{ persona_per.emailPer }}</td>
+                <td>{{ persona_per.contrasennaPer }}</td>
+                <td>{{ persona_per.cochePer }}</td>
+                <td>{{ persona_per.fechaaltaPer ? persona_per.fechaaltaPer|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ persona_per.fechabajaPer ? persona_per.fechabajaPer|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_persona_per_show', {'idPer': persona_per.idPer}) }}">show</a>
+                    <a href="{{ path('app_persona_per_edit', {'idPer': persona_per.idPer}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_persona_per_new') }}">Create new</a>
+{% endblock %}

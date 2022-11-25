@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{{ include('rol_administrador/adminNavBar.html.twig') }}
+
+<div id="contact-section-INICIAR-SESION" class="pad-sec">
+	<div class="container">
+		<div class="form-wrapper">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+
+					<form method="POST" action="{{ path('createEve') }}">
+
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtTituloEve" id="TituloEve" placeholder="Titulo">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtEstadoEve" id="EstadoEve" placeholder="Estado">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="number" name="numPrecioEve" id="PrecioEve" placeholder="Precio">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtNivelEve" id="NivelEve" placeholder="Nivel">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtTransportetipoEve" id="TransportetipoEve" placeholder="Transportetipo">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtSalidaidaEve" id="SalidaidaEve" placeholder="Salidaida">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtSalidavueltaEve" id="SalidavueltaEve" placeholder="Salidavuelta">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtLlegadaidaEve" id="LlegadaidaEve" placeholder="Llegadaida">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="text" name="txtLlegadavueltaEve" id="LlegadavueltaEve" placeholder="Llegadavuelta">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="date" name="txtFechaidaEve" id="FechaidaEve" placeholder="Fechaida">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="date" name="txtFechavueltaEve" id="FechavueltaEve" placeholder="Fechavuelta">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="number" name="numDistanciaidaEve" id="DistanciaidaEve" placeholder="Distanciaida">
+						</div>
+						<div class="form-group">
+							<input class="form-control br-b" type="number" name="numDistanciavueltaEve" id="DistanciavueltaEve" placeholder="Distanciavuelta">
+						</div>
+
+						<button type="submit" class="btn btn-primary">
+							Alta departamento
+						</button>
+					</form>
+				</div>
+				<!-- end col-md-8 -->
+			</div>
+			<!-- end row -->
+		</div>
+		<!-- end form-wrapper -->
+	</div>
+	</div>
+{% endblock %}

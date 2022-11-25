@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InscribirEvePer index{% endblock %}
+
+{% block body %}
+    <h1>InscribirEvePer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdEvePer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inscribir_eve_per in inscribir_eve_pers %}
+            <tr>
+                <td>{{ inscribir_eve_per.idEvePer }}</td>
+                <td>
+                    <a href="{{ path('app_inscribir_eve_per_show', {'idEvePer': inscribir_eve_per.idEvePer}) }}">show</a>
+                    <a href="{{ path('app_inscribir_eve_per_edit', {'idEvePer': inscribir_eve_per.idEvePer}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_inscribir_eve_per_new') }}">Create new</a>
+{% endblock %}

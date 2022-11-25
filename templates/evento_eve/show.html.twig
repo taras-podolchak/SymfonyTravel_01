@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventoEve
+{% endblock %}
+
+{% block body %}
+	<h1>EventoEve</h1>
+	<div class="row">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>IdEve</th>
+					<td>{{ evento_eve.idEve }}</td>
+				</tr>
+				<tr>
+					<th>TituloEve</th>
+					<td>{{ evento_eve.tituloEve }}</td>
+				</tr>
+				<tr>
+					<th>FotoEve</th>
+					<td>{{ evento_eve.fotoEve }}</td>
+				</tr>
+				<tr>
+					<th>EstadoEve</th>
+					<td>{{ evento_eve.estadoEve }}</td>
+				</tr>
+				<tr>
+					<th>NparticipantesEve</th>
+					<td>{{ evento_eve.nparticipantesEve }}</td>
+				</tr>
+				<tr>
+					<th>PrecioEve</th>
+					<td>{{ evento_eve.precioEve }}</td>
+				</tr>
+				<tr>
+					<th>NivelEve</th>
+					<td>{{ evento_eve.nivelEve }}</td>
+				</tr>
+				<tr>
+					<th>TransportetipoEve</th>
+					<td>{{ evento_eve.transportetipoEve }}</td>
+				</tr>
+				<tr>
+					<th>SalidaidaEve</th>
+					<td>{{ evento_eve.salidaidaEve }}</td>
+				</tr>
+				<tr>
+					<th>SalidavueltaEve</th>
+					<td>{{ evento_eve.salidavueltaEve }}</td>
+				</tr>
+				<tr>
+					<th>LlegadavueltaEve</th>
+					<td>{{ evento_eve.llegadavueltaEve }}</td>
+				</tr>
+				<tr>
+					<th>LlegadaidaEve</th>
+					<td>{{ evento_eve.llegadaidaEve }}</td>
+				</tr>
+				<tr>
+					<th>FechaidaEve</th>
+					<td>{{ evento_eve.fechaidaEve ? evento_eve.fechaidaEve|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>FechavueltaEve</th>
+					<td>{{ evento_eve.fechavueltaEve ? evento_eve.fechavueltaEve|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>DistanciaidaEve</th>
+					<td>{{ evento_eve.distanciaidaEve }}</td>
+				</tr>
+				<tr>
+					<th>DistanciavueltaEve</th>
+					<td>{{ evento_eve.distanciavueltaEve }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<a href="{{ path('app_evento_eve_index') }}">back to list</a>
+
+	<a href="{{ path('app_evento_eve_edit', {'idEve': evento_eve.idEve}) }}">edit</a>
+
+	{{ include('evento_eve/_delete_form.html.twig') }}
+{% endblock %}

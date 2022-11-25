@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ActividadAct index{% endblock %}
+
+{% block body %}
+    <h1>ActividadAct index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAct</th>
+                <th>ActividadtipoAct</th>
+                <th>NombreAct</th>
+                <th>FotoAct</th>
+                <th>NivelAct</th>
+                <th>FechaAct</th>
+                <th>HorasAct</th>
+                <th>SalidaAct</th>
+                <th>LlegadaAct</th>
+                <th>DesnivelAct</th>
+                <th>DistanciaAct</th>
+                <th>SalidacoordenadasAct</th>
+                <th>LlegadacoordenadasEve</th>
+                <th>WikilocAct</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actividad_act in actividad_acts %}
+            <tr>
+                <td>{{ actividad_act.idAct }}</td>
+                <td>{{ actividad_act.actividadtipoAct }}</td>
+                <td>{{ actividad_act.nombreAct }}</td>
+                <td>{{ actividad_act.fotoAct }}</td>
+                <td>{{ actividad_act.nivelAct }}</td>
+                <td>{{ actividad_act.fechaAct ? actividad_act.fechaAct|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ actividad_act.horasAct }}</td>
+                <td>{{ actividad_act.salidaAct }}</td>
+                <td>{{ actividad_act.llegadaAct }}</td>
+                <td>{{ actividad_act.desnivelAct }}</td>
+                <td>{{ actividad_act.distanciaAct }}</td>
+                <td>{{ actividad_act.salidacoordenadasAct }}</td>
+                <td>{{ actividad_act.llegadacoordenadasEve }}</td>
+                <td>{{ actividad_act.wikilocAct }}</td>
+                <td>
+                    <a href="{{ path('app_actividad_act_show', {'idAct': actividad_act.idAct}) }}">show</a>
+                    <a href="{{ path('app_actividad_act_edit', {'idAct': actividad_act.idAct}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_actividad_act_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New InscribirEvePer{% endblock %}
+
+{% block body %}
+    <h1>Create new InscribirEvePer</h1>
+
+    {{ include('inscribir_eve_per/_form.html.twig') }}
+
+    <a href="{{ path('app_inscribir_eve_per_index') }}">back to list</a>
+{% endblock %}

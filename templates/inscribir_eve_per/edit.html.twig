@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit InscribirEvePer{% endblock %}
+
+{% block body %}
+    <h1>Edit InscribirEvePer</h1>
+
+    {{ include('inscribir_eve_per/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_inscribir_eve_per_index') }}">back to list</a>
+
+    {{ include('inscribir_eve_per/_delete_form.html.twig') }}
+{% endblock %}

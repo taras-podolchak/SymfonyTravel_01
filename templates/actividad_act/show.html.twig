@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ActividadAct{% endblock %}
+
+{% block body %}
+    <h1>ActividadAct</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdAct</th>
+                <td>{{ actividad_act.idAct }}</td>
+            </tr>
+            <tr>
+                <th>ActividadtipoAct</th>
+                <td>{{ actividad_act.actividadtipoAct }}</td>
+            </tr>
+            <tr>
+                <th>NombreAct</th>
+                <td>{{ actividad_act.nombreAct }}</td>
+            </tr>
+            <tr>
+                <th>FotoAct</th>
+                <td>{{ actividad_act.fotoAct }}</td>
+            </tr>
+            <tr>
+                <th>NivelAct</th>
+                <td>{{ actividad_act.nivelAct }}</td>
+            </tr>
+            <tr>
+                <th>FechaAct</th>
+                <td>{{ actividad_act.fechaAct ? actividad_act.fechaAct|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>HorasAct</th>
+                <td>{{ actividad_act.horasAct }}</td>
+            </tr>
+            <tr>
+                <th>SalidaAct</th>
+                <td>{{ actividad_act.salidaAct }}</td>
+            </tr>
+            <tr>
+                <th>LlegadaAct</th>
+                <td>{{ actividad_act.llegadaAct }}</td>
+            </tr>
+            <tr>
+                <th>DesnivelAct</th>
+                <td>{{ actividad_act.desnivelAct }}</td>
+            </tr>
+            <tr>
+                <th>DistanciaAct</th>
+                <td>{{ actividad_act.distanciaAct }}</td>
+            </tr>
+            <tr>
+                <th>SalidacoordenadasAct</th>
+                <td>{{ actividad_act.salidacoordenadasAct }}</td>
+            </tr>
+            <tr>
+                <th>LlegadacoordenadasEve</th>
+                <td>{{ actividad_act.llegadacoordenadasEve }}</td>
+            </tr>
+            <tr>
+                <th>WikilocAct</th>
+                <td>{{ actividad_act.wikilocAct }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_actividad_act_index') }}">back to list</a>
+
+    <a href="{{ path('app_actividad_act_edit', {'idAct': actividad_act.idAct}) }}">edit</a>
+
+    {{ include('actividad_act/_delete_form.html.twig') }}
+{% endblock %}

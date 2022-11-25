@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit EventoEve
+{% endblock %}
+
+{% block body %}
+	{{ include('rol_administrador/adminNavBar.html.twig') }}
+
+	<div id="contact-section-INICIAR-SESION" class="pad-sec">
+		<div class="container">
+			<div class="form-wrapper">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+
+						<h1>Edit EventoEve</h1>
+
+						{{ include('evento_eve/_form.html.twig', {'button_label': 'Update'}) }}
+
+						<a href="{{ path('app_evento_eve_index') }}">back to list</a>
+
+						{{ include('evento_eve/_delete_form.html.twig') }}
+
+					</div>
+					<!-- end col-md-8 -->
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end form-wrapper -->
+		</div>
+	</div>
+{% endblock %}

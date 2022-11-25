@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventoEve index{% endblock %}
+
+{% block body %}
+    <h1>EventoEve index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdEve</th>
+                <th>TituloEve</th>
+                <th>FotoEve</th>
+                <th>EstadoEve</th>
+                <th>NparticipantesEve</th>
+                <th>PrecioEve</th>
+                <th>NivelEve</th>
+                <th>TransportetipoEve</th>
+                <th>SalidaidaEve</th>
+                <th>SalidavueltaEve</th>
+                <th>LlegadavueltaEve</th>
+                <th>LlegadaidaEve</th>
+                <th>FechaidaEve</th>
+                <th>FechavueltaEve</th>
+                <th>DistanciaidaEve</th>
+                <th>DistanciavueltaEve</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evento_eve in evento_eves %}
+            <tr>
+                <td>{{ evento_eve.idEve }}</td>
+                <td>{{ evento_eve.tituloEve }}</td>
+                <td>{{ evento_eve.fotoEve }}</td>
+                <td>{{ evento_eve.estadoEve }}</td>
+                <td>{{ evento_eve.nparticipantesEve }}</td>
+                <td>{{ evento_eve.precioEve }}</td>
+                <td>{{ evento_eve.nivelEve }}</td>
+                <td>{{ evento_eve.transportetipoEve }}</td>
+                <td>{{ evento_eve.salidaidaEve }}</td>
+                <td>{{ evento_eve.salidavueltaEve }}</td>
+                <td>{{ evento_eve.llegadavueltaEve }}</td>
+                <td>{{ evento_eve.llegadaidaEve }}</td>
+                <td>{{ evento_eve.fechaidaEve ? evento_eve.fechaidaEve|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evento_eve.fechavueltaEve ? evento_eve.fechavueltaEve|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evento_eve.distanciaidaEve }}</td>
+                <td>{{ evento_eve.distanciavueltaEve }}</td>
+                <td>
+                    <a href="{{ path('app_evento_eve_show', {'idEve': evento_eve.idEve}) }}">show</a>
+                    <a href="{{ path('app_evento_eve_edit', {'idEve': evento_eve.idEve}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

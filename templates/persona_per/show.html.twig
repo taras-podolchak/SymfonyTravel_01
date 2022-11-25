@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonaPer{% endblock %}
+
+{% block body %}
+    <h1>PersonaPer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdPer</th>
+                <td>{{ persona_per.idPer }}</td>
+            </tr>
+            <tr>
+                <th>UsuariotipoPer</th>
+                <td>{{ persona_per.usuariotipoPer }}</td>
+            </tr>
+            <tr>
+                <th>FotopropiaPer</th>
+                <td>{{ persona_per.fotopropiaPer }}</td>
+            </tr>
+            <tr>
+                <th>NombrePer</th>
+                <td>{{ persona_per.nombrePer }}</td>
+            </tr>
+            <tr>
+                <th>Apellido1Per</th>
+                <td>{{ persona_per.apellido1Per }}</td>
+            </tr>
+            <tr>
+                <th>Apellido2Per</th>
+                <td>{{ persona_per.apellido2Per }}</td>
+            </tr>
+            <tr>
+                <th>MovilPer</th>
+                <td>{{ persona_per.movilPer }}</td>
+            </tr>
+            <tr>
+                <th>DniPer</th>
+                <td>{{ persona_per.dniPer }}</td>
+            </tr>
+            <tr>
+                <th>EmailPer</th>
+                <td>{{ persona_per.emailPer }}</td>
+            </tr>
+            <tr>
+                <th>ContrasennaPer</th>
+                <td>{{ persona_per.contrasennaPer }}</td>
+            </tr>
+            <tr>
+                <th>CochePer</th>
+                <td>{{ persona_per.cochePer }}</td>
+            </tr>
+            <tr>
+                <th>FechaaltaPer</th>
+                <td>{{ persona_per.fechaaltaPer ? persona_per.fechaaltaPer|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>FechabajaPer</th>
+                <td>{{ persona_per.fechabajaPer ? persona_per.fechabajaPer|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_persona_per_index') }}">back to list</a>
+
+    <a href="{{ path('app_persona_per_edit', {'idPer': persona_per.idPer}) }}">edit</a>
+
+    {{ include('persona_per/_delete_form.html.twig') }}
+{% endblock %}

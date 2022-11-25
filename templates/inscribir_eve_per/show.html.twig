@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InscribirEvePer{% endblock %}
+
+{% block body %}
+    <h1>InscribirEvePer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdEvePer</th>
+                <td>{{ inscribir_eve_per.idEvePer }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_inscribir_eve_per_index') }}">back to list</a>
+
+    <a href="{{ path('app_inscribir_eve_per_edit', {'idEvePer': inscribir_eve_per.idEvePer}) }}">edit</a>
+
+    {{ include('inscribir_eve_per/_delete_form.html.twig') }}
+{% endblock %}

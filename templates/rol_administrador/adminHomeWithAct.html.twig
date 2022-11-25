@@ -1,0 +1,314 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<body>
+		{{ include('rol_administrador/adminNavBar.html.twig') }}
+
+		<!-- Preload the Whole Page -->
+		<div id="preloader">
+			<div id="loading-animation">&nbsp;</div>
+		</div>
+
+		<div id="wrapper">
+			<!-- Screenshots -->
+			<!-- ========================= EVENTOS DISPONIBLES ================================================== -->
+				<section>
+					<div id="screenshots-section-EVENTOS-DISPONIBLES" class="pad-sec"> <div class="container">
+						<div class="title-section text-center animated out" data-animation="fadeInUp" data-delay="0">
+							<div class="row">
+								<div class="col-sm-8 col-sm-offset-2">
+									<h2>Eventos disponibles</h2>
+									<hr/>
+									<p>Encuentra los mejores eventos para ti.</p>
+								</div>
+							</div>
+							<!-- End row -->
+						</div>
+						<!-- end title-section -->
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="screenshots-carousel animated out" data-animation="fadeInUp" data-delay="0">
+									{% for evento_eve in evento_eves %}
+										<div class="shot">
+											<div class="screen">
+												<form method="post" action="{{ path('adminHome') }}">
+													<h4>{{ evento_eve.tituloEve }}</h4>
+													<hr/>
+													<h5>Nivel
+														{{ evento_eve.nivelEve }}</h5>
+													<h5>
+														{{ evento_eve.fechaidaEve ? evento_eve.fechaidaEve|date('d-m-y') : '' }}
+														-
+														{{ evento_eve.fechavueltaEve ? evento_eve.fechavueltaEve|date('d-m-y') : '' }}
+													</h5>
+													<button type="submit" name="idEve" value="{{ evento_eve.idEve }}"><img src="/images/{{ evento_eve.fotoEve }}" alt="screenshot"/></button>
+													<a href="{{ path('app_evento_eve_edit', { idEve: evento_eve.idEve }) }}">Modificar</a>
+													<a href="{{ path('app_evento_eve_delete', { idEve: evento_eve.idEve }) }}">Eliminar</a> 
+												</form>
+											</div>
+											<!-- end screen -->
+										</div>
+										<!-- end shot -->
+									{% else %}
+										<tr>
+											<td colspan="17">no records found</td>
+										</tr>
+									{% endfor %}
+								</div>
+								<!-- end screenshots-carousel -->
+							</div>
+							<!-- end col-md-12 -->
+						</div>
+						<!-- end row -->
+					</div>
+					<!-- End screenshots-section-EVENTOS-DISPONIBLES -->
+				</section>
+
+
+				{% if evento_eve is defined %}
+					<!-- Team -->
+					<!-- ========================= EVENTO ================================================== -->
+						<section>
+							<div id="team-section-EVENTO" class="pad-sec"> <div class="container">
+								<div class="title-section animated out" data-animation="fadeInUp" data-delay="0">
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<h2>{{ evento_eve.tituloEve }}</h2>
+											<hr/>
+
+											<h4>Nivel
+												{{ evento_eve.nivelEve }}</h4>
+											<h4>
+												{{ evento_eve.fechaidaEve ? evento_eve.fechaidaEve|date('d-m-y') : '' }}
+												-
+												{{ evento_eve.fechavueltaEve ? evento_eve.fechavueltaEve|date('d-m-y') : '' }}
+											</h4>
+											<a href="#team-section-EVENTO"><img src="/images/{{ evento_eve.fotoEve }}" alt="screenshot"/></a>
+										</div>
+									</div>
+									<!-- End row -->
+								</div>
+								<!-- end title-section -->
+
+								<div class="title-section text-center animated out" data-animation="fadeInUp" data-delay="0">
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<h2>{{persona_size}}
+												Personas inscritas al evento</h2>
+											<hr/>
+											<p>Datos personales de los inscritos estan disponible solo para el Administrador.</p>
+										</div>
+									</div>
+									<!-- End row -->
+								</div>
+								<!-- end title-section -->
+
+								<!-- ========================= INSCRITOS - PERSONNAS ================================================== -->
+								<div class="row">
+									<div class="col-md-12">
+										<div class="screenshots-carousel animated out" data-animation="fadeInUp" data-delay="0">
+											{% for persona_per in persona_pers %}
+												<div class="shot">
+													<div class="screen">
+														<h4>{{ persona_per.nombrePer }}
+															{{ persona_per.apellido1Per }}</h4>
+														<hr/>
+														<h5>Tipo
+															{{ persona_per.usuariotipoPer }}</h5>
+														<h5>Tel
+															{{ persona_per.movilPer }}</h5>
+														<h5>DNI
+															{{ persona_per.dniPer }}</h5>
+														<h5>Email
+															{{ persona_per.emailPer }}</h5>
+														<a href="#"><img src="/images/{{ persona_per.fotopropiaPer }}" alt="screenshot"/></a>
+													</div>
+													<!-- end screen -->
+												</div>
+												<!-- end shot -->
+											{% else %}
+												<tr>
+													<td colspan="17">no records found</td>
+												</tr>
+											{% endfor %}
+										</div>
+										<!-- end screenshots-carousel -->
+									</div>
+									<!-- end col-md-12 -->
+								</div>
+								<!-- end row -->
+
+
+								<!-- About Team EVENTO INFO ================================================== -->
+								<section>
+									<div id="about-team-EVENTO-INFO">
+										<div class="container">
+											<div class="row">
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="title-section">
+														<h3>Descripcion completa sobre el evento</h3>
+													</div>
+													<p>Sit ad etiam dissentias, viderer intellegebat usu et, per aliquam delectus ut. In inermis suavitate tincidunt quo, habeo lorem quis nulla eget, dictum pretium magna. Praesent id metus mattis tellus consectetur posuere. Aenean vel enim ut massa luctus efficitur a nec magna.</p>
+												</div>
+												<!-- end col-md-6 -->
+
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div
+														class="progress-bars">
+														<!-- skillbar -->
+														<div
+															class="p-bar">
+															<!-- meta -->
+															<div class="progress-meta">
+																<h6 class="progress-title">Complejidad</h6>
+																<h6 class="progress-value">75%</h6>
+															</div>
+
+															<div class="progress">
+																<div class="progress-bar" aria-valuenow="75" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+														</div>
+														<!-- end p-bar -->
+
+														<!-- skillbar -->
+														<div
+															class="p-bar">
+															<!-- meta -->
+															<div class="progress-meta">
+																<h6 class="progress-title">Altitud</h6>
+																<h6 class="progress-value">95%</h6>
+															</div>
+
+															<div class="progress">
+																<div class="progress-bar" aria-valuenow="95" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+														</div>
+														<!-- end p-bar -->
+
+														<!-- skillbar -->
+														<div
+															class="p-bar">
+															<!-- meta -->
+															<div class="progress-meta">
+																<h6 class="progress-title">Desnivel</h6>
+																<h6 class="progress-value">85%</h6>
+															</div>
+
+															<div class="progress">
+																<div class="progress-bar" aria-valuenow="85" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+														</div>
+														<!-- end p-bar -->
+
+														<!-- skillbar -->
+														<div
+															class="p-bar">
+															<!-- meta -->
+															<div class="progress-meta">
+																<h6 class="progress-title">Humedad</h6>
+																<h6 class="progress-value">73%</h6>
+															</div>
+
+															<div class="progress">
+																<div class="progress-bar" aria-valuenow="73" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
+														</div>
+														<!-- end p-bar -->
+													</div>
+													<!-- end skills-bars -->
+												</div>
+												<!-- end col-md-6 -->
+											</div>
+											<!-- end row -->
+										</div>
+									</div>
+								</section>
+								<!-- End About Team -->
+
+								<div class="title-section animated out" data-animation="fadeInUp" data-delay="0">
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<h2>Este evento contiene
+												{{ actividad_size }}
+												actividades</h2>
+										</div>
+									</div>
+								</div>
+								<div class="team-members">
+									<div class="row">
+										{% for actividad_act in actividad_acts %}
+											<!-- member-team -->
+											<div class="col-sm-3">
+												<div class="member-team animated out" data-animation="fadeInLeft" data-delay="0">
+													<img src="/images/{{ actividad_act.fotoAct }}" alt=""/>
+													<div class="magnifier">
+														<div class="magnifier-inner">
+															<h3>{{ actividad_act.nombreAct }}</h3>
+															<h6>Tipo
+																{{ actividad_act.actividadtipoAct }}</h6>
+															<h6>Nivel
+																{{ actividad_act.nivelAct }}</h6>
+															<h6>Desnivel
+																{{ actividad_act.desnivelAct }}m</h6>
+															<h6>Disctancia
+																{{ actividad_act.distanciaAct }}km</h6>
+															<h6>Horas
+																{{ actividad_act.horasAct }}h</h6>
+															<h6>Salida
+																{{ actividad_act.salidaAct }}</h6>
+															<h6>Llegada
+																{{ actividad_act.llegadaAct }}</h6>
+															<a data-rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-title="Wikiloc" href="{{ actividad_act.wikilocAct }}" target="_blank" rel="noopener noreferrer" data-original-title="" title="Wikiloc">Wikiloc</a>
+															<ul class="social-icons">
+																<li>
+																	<a data-rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-title="Facebook" href="#" data-original-title="" title="">
+																		<i class="fa fa-facebook"></i>
+																	</a>
+																</li>
+
+																<li>
+																	<a data-rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-title="Twitter" href="#" data-original-title="" title="">
+																		<i class="fa fa-twitter"></i>
+																	</a>
+																</li>
+
+																<li>
+																	<a data-rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-title="Google Plus" href="#" data-original-title="" title="">
+																		<i class="fa fa-google-plus"></i>
+																	</a>
+																</li>
+
+																<li>
+																	<a data-rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-title="Skype" href="#" data-original-title="" title="">
+																		<i class="fa fa-skype"></i>
+																	</a>
+																</li>
+															</ul>
+														</div>
+														<!-- End magnifier-inner -->
+													</div>
+													<!-- End magnifier -->
+												</div>
+												<!-- End member-team -->
+											</div>
+											<!-- End col-sm-4 -->
+										{% else %}
+											<tr>
+												<td colspan="17">no records found</td>
+											</tr>
+										{% endfor %}
+									</div>
+								</div>
+								<!-- End team-members -->
+							</div>
+							<!-- End container -->
+						</div>
+						<!-- End team-section-EVENTO -->
+					</section>
+					<!-- End team section -->
+
+				{% endif %}
+			</div>
+		</body>
+	{% endblock %}
